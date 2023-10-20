@@ -1,0 +1,55 @@
+REM GUI r
+REM DELAY 1000
+REM STRING notepad.exe
+REM ENTER
+REM DELAY 1000
+REM STRING Greetings!
+REM ENTER
+REM STRING You've just launched GoodUSB!
+REM ENTER
+REM ENTER
+REM STRING This script will take the following actions:
+REM ENTER
+REM STRING 1) Download ClamAV
+REM ENTER
+REM STRING 2) Update ClamAV to the latest malware definitions.
+REM ENTER
+REM STRING 3) Scan your system memory for any malicious processes.
+REM ENTER
+REM STRING 4) If any are found, TERMINATE THEM!
+REM ENTER
+REM ENTER
+REM STRING This process may take a very long time, about 30 minutes to an hour.
+REM ENTER
+REM STRING You can abort now by unplugging this device.
+REM ENTER
+REM STRING Otherwise, the process will begin in 5...
+REM DELAY 3000
+REM STRING 4...
+REM DELAY 3000
+REM STRING 3...
+REM DELAY 3000
+REM STRING 2...
+REM DELAY 3000
+REM STRING 1...
+REM DELAY 3000
+REM STRING 0
+REM ENTER
+REM STRING Away we go!
+REM DELAY 2000
+REM ALT F4
+REM DELAY 1000
+REM ALT N
+GUI r
+DELAY 1000
+STRING powershell.exe
+ENTER
+DELAY 1000
+STRING Start-Process powershell -Verb runAs ; exit
+ENTER
+DELAY 4000
+LEFT
+ENTER
+DELAY 4000
+STRING mkdir $env:USERPROFILE\AppData\Local\Temp ; cd $env:USERPROFILE\AppData\Local\Temp ; Invoke-WebRequest -Uri https://www.clamav.net/downloads/production/clamav-0.105.0.win.x64.zip -OutFile clam.zip ; Expand-Archive -Force clam.zip ; del clam.zip ; cd clam\* ; mv .\conf_examples\freshclam.conf.sample freshclam.conf ; mv .\conf_examples\clamd.conf.sample clamd.conf ; Set-Content -Path "freshclam.conf" -Value (get-content -Path "freshclam.conf" | Select-String -Pattern 'Example' -NotMatch) ; Set-Content -Path "clamd.conf" -Value (get-content -Path "clamd.conf" | Select-String -Pattern 'Example' -NotMatch) ; Start-Process -Wait .\freshclam.exe ; Start-Process -NoNewWindow -Wait .\clamscan.exe "--memory --kill" ; cd $env:USERPROFILE\AppData\Local\Temp ; rmdir -R clam
+ENTER
