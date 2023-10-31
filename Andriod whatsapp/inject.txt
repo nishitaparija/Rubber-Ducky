@@ -1,15 +1,11 @@
 REM # -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 REM TITLE: Whatsapp Message Sender
+REM       Version:1.0
 REM 
-REM AUTHOR: Gopalsamy Rajendran         LinkedIn: @gopalsamyrajendran         Version:1.0
-REM 
-REM Disclaimer: This script is only for Educational purpose. Please don't misuse it.
 REM 
 REM Tested OS: Android version 12
 REM 
-REM Note: Script won't work on locked devices
-REM 
-REM Date: 08/03/2023
+REM Note: Script won't work on locked device.
 REM # -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 DEFINE PHONENUMBER +919930682911
